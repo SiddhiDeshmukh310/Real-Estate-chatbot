@@ -1,0 +1,12 @@
+﻿graph TD
+    User["User Query (Natural Language)"] --> API["POST /api/analyze/"]
+    API --> LLM["LLM Query Parser (Pydantic Schema)"]
+    LLM -- "Fallback / No Key" --> Fallback["Rule-Based Baseline Parser"]
+    LLM --> Validator["Whitelist & Schema Validator"]
+    Fallback --> Validator
+    Validator -- "Valid Structured Query" --> Session["Session Follow-up Handler"]
+    Validator -- "Malicious / Invalid" --> Error["Clean Rejection Response"]
+    Session --> Executor["Pandas Data Executor (Zero eval/exec)"]
+    Executor --> Data[("Excel Dataset (realestate.xlsx)")]
+    Executor --> Output["Formatted Response (Summary + Recharts + Tables)"]
+
