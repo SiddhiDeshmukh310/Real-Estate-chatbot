@@ -77,7 +77,7 @@ An evaluation benchmark was executed across **40 test questions** (including sin
 | **Rule-Based Baseline** | **85.0%** | **100.0%** | **100.0%** |
 | **LLM Parser (Mock Provider)** | **32.5%** | **100.0%** | **60.0%** |
 
-*Raw evaluation logs are saved in [`evals/results/eval_results.json`](file:///D:/Antigravity_ECG/Real-Estate-chatbot/evals/results/eval_results.json).*
+*Raw evaluation logs are saved in [`evals/results/eval_results.json`](evals/results/eval_results.json).*
 
 ---
 
@@ -94,7 +94,7 @@ An evaluation benchmark was executed across **40 test questions** (including sin
 
 * **Source**: Official Inspector General of Registration (IGR) Pune real estate transaction dataset.
 * **Scope**: 20 rows x 28 columns covering 4 Pune localities (`Akurdi`, `Ambegaon Budruk`, `Aundh`, `Wakad`) over 5 years (2020–2024).
-* *For complete details on data provenance, see [`data/README.md`](file:///D:/Antigravity_ECG/Real-Estate-chatbot/data/README.md).*
+* *For complete details on data provenance, see [`data/README.md`](data/README.md).*
 
 ---
 
@@ -115,7 +115,7 @@ An evaluation benchmark was executed across **40 test questions** (including sin
 
 ## 🐳 Docker Deployment
 
-A [`Dockerfile`](file:///D:/Antigravity_ECG/Real-Estate-chatbot/Dockerfile) is provided in the repository.
+A [`Dockerfile`](Dockerfile) is provided in the repository.
 *Status: Untested (Docker daemon was not active on local build machine).*
 
 ---
