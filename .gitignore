@@ -1,0 +1,33 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches & IDEs
+.pytest_cache/
+.ruff_cache/
+.vscode/
+.idea/
+
+# Environment & local settings
+.env
+venv/
+env/
+ENV/
+
+# Database
+db.sqlite3
+*.sqlite3-journal
+
+# Node & Build artifacts
+node_modules/
+dist/
+frontend_build/
+staticfiles/
+
+# Evaluation outputs
+evals/results/
+
+# OS metadata
+.DS_Store
+Thumbs.db
