@@ -10,7 +10,7 @@ const SUGGESTIONS = [
   "Best Investment Area",
 ];
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://sigmavalue-assignment.onrender.com";
 
 export default function ChatInterface() {
   const [messages, setMessages] = useState([
@@ -34,7 +34,7 @@ export default function ChatInterface() {
   }, [messages, loading]);
 
   const handleSend = async (queryText) => {
-    const textToSend = queryText || input.strip ? queryText || input.trim() : "";
+    const textToSend = queryText || input.trim();
     if (!textToSend || loading) return;
 
     const userMsg = { id: Date.now().toString(), sender: "user", text: textToSend };
@@ -69,7 +69,7 @@ export default function ChatInterface() {
         {
           id: (Date.now() + 1).toString(),
           sender: "assistant",
-          text: "Error connecting to backend service. Please ensure the backend is active or woke up on Render.",
+          text: "Error connecting to backend service. Please check your network connection or verify the backend service status.",
           data: null,
         },
       ]);
