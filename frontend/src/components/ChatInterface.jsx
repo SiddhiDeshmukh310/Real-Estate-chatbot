@@ -10,6 +10,8 @@ const SUGGESTIONS = [
   "Best Investment Area",
 ];
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://sigmavalue-assignment.onrender.com";
+
 export default function ChatInterface() {
   const [messages, setMessages] = useState([
     {
@@ -41,11 +43,16 @@ export default function ChatInterface() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/analyze/", {
+      const endpoint = `${API_BASE_URL}/api/analyze/`;
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: textToSend, session_id: "user_session_v2" }),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
 
       const resData = await response.json();
       const botMsg = {
@@ -56,13 +63,13 @@ export default function ChatInterface() {
       };
       setMessages((prev) => [...prev, botMsg]);
     } catch (err) {
-      console.error(err);
+      console.error("Backend fetch error:", err);
       setMessages((prev) => [
         ...prev,
         {
           id: (Date.now() + 1).toString(),
           sender: "assistant",
-          text: "Error connecting to backend service. Please try again.",
+          text: "Error connecting to backend service. Please check your network connection or verify the backend service status.",
           data: null,
         },
       ]);
